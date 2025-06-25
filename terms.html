@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - MyShop</title>
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/privacy.css" />
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <div class="header">
+            <div class="header-top">
+                <div class="logo">🛍️ MyShop</div>
+                <div class="hamburger" id="hamburger">&#9776;</div>
+            </div>
+            <div class="header-actions">
+                <input type="text" placeholder="Search products..." class="search-input" />
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/32" alt="User" class="user-avatar" />
+                    <span class="username">Admin</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar" id="sidebar">
+            <span class="close-btn" id="closeSidebar">&times;</span>
+            <ul class="nav">
+                <li><a href="./index.html">🏠 Dashboard</a></li>
+                <li><a href="./products.html">📦 Products</a></li>
+                <li><a href="./orders.html">🛒 Orders</a></li>
+                <li><a href="./customers.html">👤 Customers</a></li>
+                <li><a href="#">🚪 Logout</a></li>
+            </ul>
+        </div>
+
+
+        <div class="main-content-description">
+            <div class="content-header-detail">
+                <h2>Terms of Service</h2>
+                <p>These Terms of Service ("Terms") govern your access to and use of the MyShop website and services. By
+                    accessing or using any part of our website, you agree to be bound by these Terms. If you do not
+                    agree with any part of the Terms, please do not use our services.</p>
+                <br />
+                <p><strong>1. Use of the Site:</strong> You agree to use our website and services only for lawful
+                    purposes. You may not use our platform to engage in fraudulent, illegal, or abusive activity.</p>
+                <p><strong>2. Account Responsibility:</strong> If you create an account with us, you are responsible for
+                    maintaining the security of your account and for all activities that occur under your account.</p>
+                <p><strong>3. Product Information:</strong> We make every effort to display accurate product
+                    information, but we do not guarantee the accuracy or completeness of product details.</p>
+                <p><strong>4. Payments:</strong> All purchases must be paid for using valid payment methods. You agree
+                    to pay all charges associated with your orders.</p>
+                <p><strong>5. Intellectual Property:</strong> All content, trademarks, logos, and designs on MyShop are
+                    owned by us or our licensors. You may not copy or modify any content without permission.</p>
+                <p><strong>6. User Content:</strong> You are responsible for the content you submit. We reserve the
+                    right to remove any content that violates these terms or is deemed inappropriate.</p>
+                <p><strong>7. Limitation of Liability:</strong> MyShop is not liable for any indirect or consequential
+                    damages resulting from your use of our services.</p>
+                <p><strong>8. Termination:</strong> We may terminate your access at any time if you violate these terms.
+                    Upon termination, all rights granted to you will cease.</p>
+                <p><strong>9. Changes:</strong> We reserve the right to update these terms at any time. Continued use of
+                    our services implies acceptance of the updated terms.</p>
+                <p>If you have any questions about these Terms, please contact us at support@myshop.com.</p>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    🛍️ <strong>MyShop</strong>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MyShop. All rights reserved.</p>
+                <p>Made with ❤️ for online shoppers.</p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("sidebar");
+        const closeBtn = document.getElementById("closeSidebar");
+
+        hamburger.addEventListener("click", () => {
+            sidebar.classList.add("open");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+        });
+
+    </script>
+</body>
+
+</html>

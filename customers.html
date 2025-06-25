@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyShop - Customers</title>
+  <link rel="stylesheet" href="./css/layout.css" />
+  <link rel="stylesheet" href="./css/customers.css" />
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="header">
+      <div class="header-top">
+        <div class="logo">🛍️ MyShop</div>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+      </div>
+      <div class="header-actions">
+        <input type="text" placeholder="Search customers..." class="search-input" />
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/32" alt="User" class="user-avatar" />
+          <span class="username">Admin</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+      <span class="close-btn" id="closeSidebar">&times;</span>
+      <ul class="nav">
+        <li><a href="./index.html">🏠 Dashboard</a></li>
+        <li><a href="./products.html">📦 Products</a></li>
+        <li><a href="./orders.html">🛒 Orders</a></li>
+        <li><a href="./customers.html" class="active">👤 Customers</a></li>
+        <li><a href="#">🚪 Logout</a></li>
+      </ul>
+    </div>
+
+    <main class="main-content">
+      <div class="content-header">
+        <h2>Customer Management</h2>
+        <p>Track and manage all registered customers of your store.</p>
+      </div>
+
+      <div class="content-actions">
+        <button class="btn">➕ Add New Customer</button>
+        <button class="btn secondary">📥 Export Customers</button>
+      </div>
+    </main>
+
+    <section class="cards">
+      <div class="customers-table-container">
+        <table class="customers-table">
+          <thead>
+            <tr>
+              <th>Customer ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Joined</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="customersBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <div class="footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          🛍️ <strong>MyShop</strong>
+        </div>
+        <div class="footer-links">
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Service</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MyShop. All rights reserved.</p>
+        <p>Made with ❤️ for online shoppers.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const customers = [
+      { id: "C101", name: "Jane Doe", email: "jane@example.com", joined: "2025-01-15", status: "active" },
+      { id: "C102", name: "John Smith", email: "john.smith@example.com", joined: "2025-02-03", status: "inactive" },
+      { id: "C103", name: "Emily Davis", email: "emily.davis@example.com", joined: "2025-03-22", status: "active" },
+      { id: "C104", name: "Michael Lee", email: "michael.lee@example.com", joined: "2025-04-05", status: "active" },
+      { id: "C105", name: "Sophia White", email: "sophia.white@example.com", joined: "2025-05-12", status: "inactive" },
+      { id: "C106", name: "Daniel Brown", email: "daniel.brown@example.com", joined: "2025-06-08", status: "active" },
+      { id: "C107", name: "Olivia Green", email: "olivia.green@example.com", joined: "2025-06-14", status: "inactive" },
+      { id: "C108", name: "Liam Johnson", email: "liam.johnson@example.com", joined: "2025-06-18", status: "active" },
+      { id: "C109", name: "Ava Martinez", email: "ava.martinez@example.com", joined: "2025-06-21", status: "active" },
+    ];
+
+    const tbody = document.getElementById("customersBody");
+
+    customers.forEach(c => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${c.id}</td>
+        <td>${c.name}</td>
+        <td title="${c.email}">${c.email}</td>
+        <td>${c.joined}</td>
+        <td><span class="status ${c.status}">${c.status.charAt(0).toUpperCase() + c.status.slice(1)}</span></td>
+        <td><button class="btn small">View</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    const hamburger = document.getElementById("hamburger");
+    const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.getElementById("closeSidebar");
+
+    hamburger.addEventListener("click", () => sidebar.classList.add("open"));
+    closeBtn.addEventListener("click", () => sidebar.classList.remove("open"));
+  </script>
+</body>
+
+</html>

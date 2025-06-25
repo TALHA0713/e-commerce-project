@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyShop Dashboard</title>
+  <link rel="stylesheet" href="./css/layout.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="header">
+      <div class="header-top">
+        <div class="logo">🛍️ MyShop</div>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+      </div>
+      <div class="header-actions">
+        <input type="text" placeholder="Search products..." class="search-input" />
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/32" alt="User" class="user-avatar" />
+          <span class="username">Admin</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+      <span class="close-btn" id="closeSidebar">&times;</span>
+      <ul class="nav">
+        <li><a href="./index.html" class="active">🏠 Dashboard</a></li>
+        <li><a href="./products.html">📦 Products</a></li>
+        <li><a href="./orders.html">🛒 Orders</a></li>
+        <li><a href="./customers.html">👤 Customers</a></li>
+        <li><a href="#">🚪 Logout</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="content-header">
+        <h2>Product Management</h2>
+        <p>Browse, manage, and organize your store’s entire product catalog.</p>
+      </div>
+      <div class="content-actions">
+        <button class="btn">➕ Add New Product</button>
+        <button class="btn secondary">📥 Import Products</button>
+      </div>
+    </div>
+
+    <div class="cards" id="cardContainer"></div>
+
+
+    <div class="footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          🛍️ <strong>MyShop</strong>
+        </div>
+        <div class="footer-links">
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Service</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MyShop. All rights reserved.</p>
+        <p>Made with ❤️ for online shoppers.</p>
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          title: "Wireless Headphones",
+          desc: "Noise-cancelling over-ear Bluetooth headphones.",
+          img: "./images/mergers.png",
+          price: "$99"
+        },
+        {
+          title: "Smartphone Stand",
+          desc: "Adjustable aluminum phone holder for desk.",
+          img: "./images/stremlined.png",
+          price: "$19"
+        },
+        {
+          title: "Mechanical Keyboard",
+          desc: "RGB backlit mechanical keyboard with blue switches.",
+          img: "./images/structure.png",
+          price: "$59"
+        },
+        {
+          title: "Fitness Smartwatch",
+          desc: "Tracks heart rate, sleep, steps, and notifications.",
+          img: "./images/synergizing.png",
+          price: "$129"
+        },
+        {
+          title: "4K Monitor",
+          desc: "27-inch ultra HD display for work and gaming.",
+          img: "./images/streamling.png",
+          price: "$299"
+        },
+        {
+          title: "Gaming Mouse",
+          desc: "Ergonomic design with 7 programmable buttons.",
+          img: "./images/stremlined.png",
+          price: "$39"
+        }
+      ];
+
+      const container = document.getElementById("cardContainer");
+
+      products.forEach(product => {
+        const cardEl = document.createElement("div");
+        cardEl.className = "card";
+        cardEl.innerHTML = `
+        <div class="image-container">
+          <img src="${product.img}" alt="${product.title}" class="image" />
+          <div class="overlay">
+            <div class="text">View Details</div>
+          </div>
+        </div>
+        <div class="description">
+          <h3>${product.title}</h3>
+          <p>${product.desc}</p>
+          <strong class="price">${product.price}</strong>
+        </div>
+      `;
+        container.appendChild(cardEl);
+      });
+
+      const hamburger = document.getElementById("hamburger");
+      const sidebar = document.getElementById("sidebar");
+      const closeBtn = document.getElementById("closeSidebar");
+
+      hamburger.addEventListener("click", () => {
+        sidebar.classList.add("open");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+      });
+    </script>
+</body>
+
+</html>

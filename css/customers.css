@@ -1,0 +1,226 @@
+/* Customers Page Styles */
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "sidebar cards"
+    "sidebar footer";
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto auto auto auto;
+  min-height: 100vh;
+}
+
+.cards {
+  grid-area: cards;
+  padding: 2rem 3rem;
+}
+
+.customers-table-container {
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.customers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-width: 700px;
+}
+
+.customers-table thead {
+  background-color: #3f51b5;
+  color: white;
+  text-align: left;
+}
+
+.customers-table th,
+.customers-table td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.customers-table tbody tr:hover {
+  background-color: #f4f6fa;
+  cursor: pointer;
+}
+
+.status {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+.status.active {
+  background-color: #5cb85c;
+}
+
+.status.inactive {
+  background-color: #d9534f;
+}
+
+@media (max-width: 900px) {
+  .customers-table {
+    min-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .content-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .content-header p {
+    font-size: 1rem;
+  }
+}
+
+/* =======================
+    Tablet Screens (≤1024px)
+======================= */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 250px 1fr;
+  }
+
+  .main-content {
+    padding: 1.5rem 2rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .content-actions {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .customers-table-container {
+    overflow-x: auto;
+  }
+}
+
+/* =======================
+    Mobile Screens (≤768px)
+======================= */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "main"
+      "cards"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .close-btn {
+    display: block;
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: right;
+    cursor: pointer;
+  }
+
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .cards {
+    padding: 1rem;
+  }
+
+  .customers-table th,
+  .customers-table td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  /* Hide Customer ID and Joined Date columns */
+  .customers-table th:nth-child(1),
+  .customers-table td:nth-child(1),
+  .customers-table th:nth-child(4),
+  .customers-table td:nth-child(4) {
+    display: none;
+  }
+
+  .content-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .content-header p {
+    font-size: 1rem;
+  }
+
+  .footer-top,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+
+/* =======================
+    Extra Small Screens (≤480px)
+======================= */
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .customers-table td:nth-child(3) {
+    max-width: 77px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .content-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .customers-table {
+    font-size: 0.85rem;
+  }
+
+  .status {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    min-width: auto;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+}

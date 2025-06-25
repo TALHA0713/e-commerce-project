@@ -1,0 +1,259 @@
+/* =======================
+   Grid Layout
+======================= */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "sidebar cards"
+    "sidebar footer";
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr auto auto;
+  min-height: 100vh;
+}
+
+/* =======================
+     Orders Table Section
+  ======================= */
+.cards {
+  grid-area: cards;
+  padding: 2rem 3rem;
+  background-color: #fafafa;
+}
+
+.orders-table-container {
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-width: 700px;
+}
+
+.orders-table thead {
+  background-color: #3f51b5;
+  color: white;
+  text-align: left;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.orders-table tbody tr:hover {
+  background-color: #f4f6fa;
+  cursor: pointer;
+}
+
+/* =======================
+     Buttons & Badges
+  ======================= */
+.btn {
+  background-color: #3f51b5;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #32439b;
+}
+
+.btn.secondary {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.btn.secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.btn.small {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* Status badges */
+.status {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+.status.pending {
+  background-color: #f0ad4e;
+}
+
+.status.shipped {
+  background-color: #5bc0de;
+}
+
+.status.delivered {
+  background-color: #5cb85c;
+}
+
+.status.cancelled {
+  background-color: #d9534f;
+}
+
+/* =======================
+    Tablet Screens (≤1024px)
+======================= */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .content-actions {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .orders-table-container {
+    overflow-x: auto;
+  }
+
+  .sidebar {
+    width: 250px;
+  }
+
+  .grid-container {
+    grid-template-columns: 250px 1fr;
+  }
+}
+
+/* =======================
+    Mobile Screens (≤768px)
+======================= */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "main"
+      "cards"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .close-btn {
+    display: block;
+    font-size: 2rem;
+    text-align: right;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .cards {
+    padding: 1rem;
+  }
+
+  .orders-table th,
+  .orders-table td {
+    padding: 0.8rem;
+  }
+
+  .content-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .content-header p {
+    font-size: 1rem;
+  }
+
+  .footer-top,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* =======================
+    Extra Small Screens (≤480px)
+======================= */
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .orders-table th:nth-child(1),
+  .orders-table td:nth-child(1),
+  .orders-table th:nth-child(3),
+  .orders-table td:nth-child(3) {
+    display: none;
+  }
+
+  .content-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .orders-table {
+    font-size: 0.85rem;
+    min-width: 100%;
+  }
+
+  .orders-table th,
+  .orders-table td {
+    padding: 0.6rem;
+  }
+
+  .status {
+    font-size: 0.75rem;
+    min-width: auto;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+}

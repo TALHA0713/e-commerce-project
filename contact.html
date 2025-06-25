@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - MyShop</title>
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+</head>
+
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo">🛍️ MyShop</div>
+                <div class="hamburger" id="hamburger">&#9776;</div>
+            </div>
+            <div class="header-actions">
+                <input type="text" placeholder="Search products..." class="search-input" />
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/32" alt="User" class="user-avatar" />
+                    <span class="username">Admin</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <span class="close-btn" id="closeSidebar">&times;</span>
+            <ul class="nav">
+                <li><a href="./index.html">🏠 Dashboard</a></li>
+                <li><a href="./products.html">📦 Products</a></li>
+                <li><a href="./orders.html">🛒 Orders</a></li>
+                <li><a href="./customers.html">👤 Customers</a></li>
+                <li><a href="#">🚪 Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h2>Contact Us</h2>
+                <p>If you have any questions, concerns, or feedback, feel free to reach out using the form below.</p>
+            </div>
+        </main>
+
+        <!-- Form Section (new grid area: form) -->
+        <section class="form-section">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" rows="6" placeholder="Type your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn">📨 Send Message</button>
+            </form>
+        </section>
+
+        <div class="popup-overlay" id="thankYouPopup">
+            <div class="popup-box">
+                <h3>🎉 Thank You!</h3>
+                <p>Your message has been sent successfully.</p>
+                <button class="btn" onclick="closePopup()">Close</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-logo">🛍️ <strong>MyShop</strong></div>
+                <div class="footer-links">
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms of Service</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MyShop. All rights reserved.</p>
+                <p>Made with ❤️ for online shoppers.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("sidebar");
+        const closeBtn = document.getElementById("closeSidebar");
+
+        hamburger.addEventListener("click", () => {
+            sidebar.classList.add("open");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+        });
+
+        const form = document.querySelector('.contact-form');
+        const popup = document.getElementById('thankYouPopup');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            popup.style.display = 'flex';
+            form.reset();
+        });
+
+        function closePopup() {
+            popup.style.display = 'none';
+        }
+
+    </script>
+
+</body>
+
+</html>

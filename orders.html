@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyShop Dashboard</title>
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/orders.css" />
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="header">
+            <div class="header-top">
+                <div class="logo">🛍️ MyShop</div>
+                <div class="hamburger" id="hamburger">&#9776;</div>
+            </div>
+            <div class="header-actions">
+                <input type="text" placeholder="Search products..." class="search-input" />
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/32" alt="User" class="user-avatar" />
+                    <span class="username">Admin</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar" id="sidebar">
+            <span class="close-btn" id="closeSidebar">&times;</span>
+            <ul class="nav">
+                <li><a href="./index.html">🏠 Dashboard</a></li>
+                <li><a href="./products.html">📦 Products</a></li>
+                <li><a href="./orders.html" class="active">🛒 Orders</a></li>
+                <li><a href="./customers.html">👤 Customers</a></li>
+                <li><a href="#">🚪 Logout</a></li>
+            </ul>
+        </div>
+
+
+        <main class="main-content">
+            <div class="content-header">
+                <h2>Order Management</h2>
+                <p>Review and manage all customer orders placed in your store.</p>
+            </div>
+
+            <div class="content-actions">
+                <button class="btn">➕ Add New Order</button>
+                <button class="btn secondary">📥 Export Orders</button>
+            </div>
+        </main>
+
+        <section class="cards">
+            <div class="orders-table-container">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    🛍️ <strong>MyShop</strong>
+                </div>
+                <div class="footer-links">
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms of Service</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MyShop. All rights reserved.</p>
+                <p>Made with ❤️ for online shoppers.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const orders = [
+            { id: "#1001", customer: "Jane Doe", date: "2025-06-20", status: "pending", total: "$129.99" },
+            { id: "#1002", customer: "John Smith", date: "2025-06-19", status: "shipped", total: "$89.50" },
+            { id: "#1003", customer: "Emily Johnson", date: "2025-06-18", status: "delivered", total: "$49.00" },
+            { id: "#1004", customer: "Michael Brown", date: "2025-06-17", status: "cancelled", total: "$199.99" },
+            { id: "#1005", customer: "Sarah Williams", date: "2025-06-16", status: "pending", total: "$75.25" },
+            { id: "#1006", customer: "David Miller", date: "2025-06-15", status: "delivered", total: "$45.00" },
+            { id: "#1007", customer: "Laura Davis", date: "2025-06-14", status: "shipped", total: "$110.00" },
+            { id: "#1008", customer: "Daniel Wilson", date: "2025-06-13", status: "cancelled", total: "$60.75" },
+            { id: "#1009", customer: "Sophia Anderson", date: "2025-06-12", status: "pending", total: "$98.30" },
+            { id: "#1010", customer: "James Clark", date: "2025-06-11", status: "shipped", total: "$150.40" }
+        ];
+
+        const tbody = document.getElementById("ordersBody");
+
+        orders.forEach(order => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+            <td>${order.id}</td>
+            <td>${order.customer}</td>
+            <td>${order.date}</td>
+            <td><span class="status ${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span></td>
+            <td>${order.total}</td>
+            <td><button class="btn small">View</button></td>
+          `;
+            tbody.appendChild(tr);
+        });
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("sidebar");
+        const closeBtn = document.getElementById("closeSidebar");
+
+        hamburger.addEventListener("click", () => {
+            sidebar.classList.add("open");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+        });
+
+    </script>
+</body>
+
+</html>

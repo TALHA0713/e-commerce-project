@@ -1,0 +1,97 @@
+/* =======================
+   Main Content (Privacy Page)
+======================= */
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "sidebar footer";
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.main-content-description {
+  grid-area: main;
+  padding: 2.5rem 4rem;
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+.content-header-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #333;
+}
+
+.content-header-detail h2 {
+  font-size: 2.2rem;
+  color: #3f51b5;
+  margin-bottom: 1.5rem;
+}
+
+.content-header-detail p {
+  font-size: 1.15rem;
+  color: #444;
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+/* =======================
+   Responsive Styles
+======================= */
+
+@media (max-width: 1024px) {
+  .main-content-description {
+    padding: 2rem 2rem;
+  }
+
+  .content-header-detail h2 {
+    font-size: 2rem;
+  }
+
+  .content-header-detail p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .main-content-description {
+    padding: 2rem 1.5rem;
+  }
+
+  .content-header-detail h2 {
+    font-size: 1.8rem;
+  }
+
+  .content-header-detail p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content-description {
+    padding: 1.5rem 1rem;
+  }
+
+  .content-header-detail h2 {
+    font-size: 1.6rem;
+  }
+
+  .content-header-detail p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}

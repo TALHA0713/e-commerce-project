@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyShop Dashboard</title>
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/products.css" />
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="header">
+            <div class="header-top">
+                <div class="logo">🛍️ MyShop</div>
+                <div class="hamburger" id="hamburger">&#9776;</div>
+            </div>
+            <div class="header-actions">
+                <input type="text" placeholder="Search products..." class="search-input" />
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/32" alt="User" class="user-avatar" />
+                    <span class="username">Admin</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar" id="sidebar">
+            <span class="close-btn" id="closeSidebar">&times;</span>
+            <ul class="nav">
+                <li><a href="./index.html">🏠 Dashboard</a></li>
+                <li><a href="./products.html" class="active">📦 Products</a></li>
+                <li><a href="./orders.html">🛒 Orders</a></li>
+                <li><a href="./customers.html">👤 Customers</a></li>
+                <li><a href="#">🚪 Logout</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="content-header">
+                <h2>All Products</h2>
+                <p>Explore the full range of products available in your store.</p>
+            </div>
+            <div class="content-actions">
+                <button class="btn">➕ Add New Product</button>
+                <button class="btn secondary">📥 Import Products</button>
+            </div>
+        </div>
+
+
+        <div class="products-grid" id="productGrid"></div>
+
+
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    🛍️ <strong>MyShop</strong>
+                </div>
+                <div class="footer-links">
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms of Service</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MyShop. All rights reserved.</p>
+                <p>Made with ❤️ for online shoppers.</p>
+            </div>
+        </div>
+
+</body>
+
+<script>
+
+    const categories = [
+        { name: "Electronics", image: "./images/mergers.png", link: "electronics.html" },
+        { name: "Mobile Phones", image: "./images/mergers.png", link: "mobiles.html" },
+        { name: "Laptops & Computers", image: "./images/mergers.png", link: "laptops.html" },
+        { name: "Home Appliances", image: "./images/mergers.png", link: "appliances.html" },
+        { name: "Fashion", image: "./images/mergers.png", link: "fashion.html" },
+        { name: "Beauty & Personal Care", image: "./images/mergers.png", link: "beauty.html" },
+        { name: "Furniture", image: "./images/mergers.png", link: "furniture.html" },
+        { name: "Sports & Outdoors", image: "./images/mergers.png", link: "sports.html" },
+        { name: "Books & Stationery", image: "./images/mergers.png", link: "books.html" },
+        { name: "Toys & Games", image: "./images/mergers.png", link: "toys.html" },
+        { name: "Grocery & Essentials", image: "./images/mergers.png", link: "grocery.html" },
+        { name: "Health & Wellness", image: "./images/mergers.png", link: "health.html" },
+        { name: "Jewelry & Accessories", image: "./images/mergers.png", link: "jewelry.html" },
+        { name: "Footwear", image: "./images/mergers.png", link: "footwear.html" },
+        { name: "Watches", image: "./images/mergers.png", link: "watches.html" }
+    ];
+
+    const grid = document.getElementById("productGrid");
+
+    categories.forEach(category => {
+        const card = document.createElement("a");
+        // card.href = category.link;
+        card.className = "product-card";
+        card.innerHTML = `
+      <img src="${category.image}" alt="${category.name}">
+      <h3>${category.name}</h3>
+    `;
+        grid.appendChild(card);
+    });
+    const hamburger = document.getElementById("hamburger");
+    const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.getElementById("closeSidebar");
+
+    hamburger.addEventListener("click", () => {
+        sidebar.classList.add("open");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+    });
+</script>
+
+</html>
