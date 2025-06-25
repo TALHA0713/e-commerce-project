@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail - MyShop</title>
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/product-detail.css" />
+</head>
+
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo">🛍️ MyShop</div>
+                <div class="hamburger" id="hamburger">&#9776;</div>
+            </div>
+            <div class="header-actions">
+                <input type="text" placeholder="Search products..." class="search-input" />
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/32" alt="User" class="user-avatar" />
+                    <span class="username">Admin</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <span class="close-btn" id="closeSidebar">&times;</span>
+            <ul class="nav">
+                <li><a href="./index.html">🏠 Dashboard</a></li>
+                <li><a href="./products.html">📦 Products</a></li>
+                <li><a href="./orders.html">🛒 Orders</a></li>
+                <li><a href="./customers.html">👤 Customers</a></li>
+                <li><a href="#">🚪 Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main -->
+        <div class="main-content">
+            <div class="content-header">
+                <h2>Product Detail</h2>
+                <p>Full information about the selected product.</p>
+            </div>
+        </div>
+
+        <!-- Cards Area for Product Detail -->
+        <div class="cards">
+            <div class="product-detail-container">
+                <div class="product-image">
+                    <img src="./images/mergers.png" alt="Smart TV" />
+                </div>
+                <div class="product-info">
+                    <h1 class="product-title">Smart LED TV 55" 4K Ultra HD</h1>
+                    <p class="merchant-id">Merchant ID: <strong>MRC123456</strong></p>
+                    <p class="global-id">Global ID: <strong>GLB987654321</strong></p>
+                    <p class="price">$599.00</p>
+                    <p class="availability">Availability: <span class="in-stock">In Stock</span></p>
+
+                    <div class="action-buttons">
+                        <button class="btn primary">🛒 Add to Cart</button>
+                        <button class="btn secondary">❤️ Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-tabs">
+                <h2>Description</h2>
+                <p>
+                    This Smart LED TV features a stunning 4K Ultra HD display with HDR support, built-in Wi-Fi,
+                    and streaming apps like Netflix, YouTube, and Prime Video. Perfect for movie nights, gaming, and
+                    daily entertainment.
+                </p>
+
+                <h2>Why We Recommend This</h2>
+                <ul>
+                    <li>Ultra-slim design fits any room style</li>
+                    <li>Voice control and remote included</li>
+                    <li>Energy efficient and eco-certified</li>
+                    <li>3-year manufacturer warranty</li>
+                </ul>
+
+                <h2>Specifications</h2>
+                <table class="spec-table">
+                    <tr>
+                        <td>Screen Size:</td>
+                        <td>55 inches</td>
+                    </tr>
+                    <tr>
+                        <td>Resolution:</td>
+                        <td>3840 x 2160 (4K)</td>
+                    </tr>
+                    <tr>
+                        <td>Connectivity:</td>
+                        <td>HDMI x3, USB x2, Wi-Fi, Bluetooth</td>
+                    </tr>
+                    <tr>
+                        <td>Weight:</td>
+                        <td>12.5 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Model Year:</td>
+                        <td>2025</td>
+                    </tr>
+                </table>
+
+                <h2>Customer Reviews</h2>
+                <div class="review">
+                    <strong>John D.</strong> ⭐⭐⭐⭐☆<br />
+                    <p>Great picture quality and easy to set up. The smart features are smooth. Worth the price!</p>
+                </div>
+                <div class="review">
+                    <strong>Sarah M.</strong> ⭐⭐⭐⭐⭐<br />
+                    <p>Loved it! Perfect for our family movie nights. Excellent sound and display.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-logo">🛍️ <strong>MyShop</strong></div>
+                <div class="footer-links">
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms of Service</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MyShop. All rights reserved.</p>
+                <p>Made with ❤️ for online shoppers.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("sidebar");
+        const closeBtn = document.getElementById("closeSidebar");
+
+        hamburger.addEventListener("click", () => {
+            sidebar.classList.add("open");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+        });
+    </script>
+</body>
+
+</html>

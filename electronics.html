@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electronics - MyShop</title>
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/products.css" />
+</head>
+
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo">🛍️ MyShop</div>
+                <div class="hamburger" id="hamburger">&#9776;</div>
+            </div>
+            <div class="header-actions">
+                <input type="text" placeholder="Search products..." class="search-input" />
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/32" alt="User" class="user-avatar" />
+                    <span class="username">Admin</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <span class="close-btn" id="closeSidebar">&times;</span>
+            <ul class="nav">
+                <li><a href="./index.html">🏠 Dashboard</a></li>
+                <li><a href="./products.html" class="active">📦 Products</a></li>
+                <li><a href="./orders.html">🛒 Orders</a></li>
+                <li><a href="./customers.html">👤 Customers</a></li>
+                <li><a href="#">🚪 Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-header">
+                <h2>Electronics</h2>
+                <p>Browse all electronic products available in the store.</p>
+            </div>
+        </div>
+
+        <!-- Products -->
+        <div class="products-grid" id="productGrid"></div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-logo">🛍️ <strong>MyShop</strong></div>
+                <div class="footer-links">
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms of Service</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MyShop. All rights reserved.</p>
+                <p>Made with ❤️ for online shoppers.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const products = [
+            {
+                name: "Smart TV",
+                image: "./images/mergers.png",
+                price: "$599",
+                description: "Experience stunning visuals with 4K resolution and smart features."
+            },
+            {
+                name: "Bluetooth Speaker",
+                image: "./images/mergers.png",
+                price: "$79",
+                description: "Compact and powerful speaker with rich bass and long battery life."
+            },
+            {
+                name: "Wireless Headphones",
+                image: "./images/mergers.png",
+                price: "$129",
+                description: "Enjoy noise-free, wireless music for up to 30 hours on a single charge."
+            },
+            {
+                name: "Game Console",
+                image: "./images/mergers.png",
+                price: "$399",
+                description: "Next-gen console with ultra-fast load times and immersive graphics."
+            },
+            {
+                name: "Smart Watch",
+                image: "./images/mergers.png",
+                price: "$199",
+                description: "Track fitness, receive notifications, and more — right on your wrist."
+            }
+        ];
+
+        const grid = document.getElementById("productGrid");
+
+        products.forEach(product => {
+            const card = document.createElement("div");
+            card.className = "product-card";
+            card.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <div class="product-header">
+                <h3>${product.name}</h3>
+                <span class="price">${product.price}</span>
+            </div>
+            <p class="description">${product.description}</p>
+    `;
+
+            card.addEventListener("click", () => {
+                window.location.href = "product-detail.html";
+            });
+
+            grid.appendChild(card);
+        });
+
+
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("sidebar");
+        const closeBtn = document.getElementById("closeSidebar");
+
+        hamburger.addEventListener("click", () => sidebar.classList.add("open"));
+        closeBtn.addEventListener("click", () => sidebar.classList.remove("open"));
+    </script>
+</body>
+
+</html>
